@@ -68,49 +68,59 @@
                 talents.
               </p>
             </div>
-            <div class="grid full">
+            <div class="carousel">
+              <button class="carousel-btn prev" type="button" aria-label="Voir la formation précédente">
+                ‹
+              </button>
+              <div class="carousel-viewport" data-carousel>
+                <div class="carousel-track">
               <article class="card card-wide">
-                <span class="level-pill">Niveau 3</span>
                 <h3>Employé polyvalent en restauration</h3>
                 <p>
                   Préparation des plats, service client et respect des normes d'hygiène.
                 </p>
+                <span class="level-pill">Niveau 3 · TP-00208</span>
                 <a href="formation-epr.html">Voir la formation</a>
               </article>
               <article class="card card-wide">
-                <span class="level-pill">Niveau 4</span>
                 <h3>Assistant manager d'unité marchande</h3>
                 <p>
                   Animation d'équipe, organisation commerciale et qualité de l'expérience
                   client.
                 </p>
+                <span class="level-pill">Niveau 4 · TP-00075</span>
                 <a href="formation-amum.html">Voir la formation</a>
               </article>
               <article class="card card-wide">
-                <span class="level-pill">Niveau 4</span>
                 <h3>Conseiller de vente</h3>
                 <p>
                   Conseil client, vente et fidélisation en magasin et en parcours
                   omnicanal.
                 </p>
+                <span class="level-pill">Niveau 4 · TP-00520</span>
                 <a href="formation-cv.html">Voir la formation</a>
               </article>
               <article class="card card-wide">
-                <span class="level-pill">Niveau 5</span>
                 <h3>Manager d'unité marchande</h3>
                 <p>
                   Pilotage d'activité, management d'équipe et performance commerciale.
                 </p>
+                <span class="level-pill">Niveau 5 · TP-00136</span>
                 <a href="formation-mum.html">Voir la formation</a>
               </article>
               <article class="card card-wide">
-                <span class="level-pill">Niveau 5</span>
                 <h3>Responsable de petite ou moyenne structure</h3>
                 <p>
                   Gestion globale, stratégie et pilotage financier d'une structure.
                 </p>
+                <span class="level-pill">Niveau 5 · TP-00169</span>
                 <a href="formation-rpms.html">Voir la formation</a>
               </article>
+                </div>
+              </div>
+              <button class="carousel-btn next" type="button" aria-label="Voir la formation suivante">
+                ›
+              </button>
             </div>
           </div>
         </section>
@@ -223,5 +233,23 @@
         </div>
       </footer>
     </div>
+    <script>
+      const viewport = document.querySelector("[data-carousel]");
+      const prev = document.querySelector(".carousel-btn.prev");
+      const next = document.querySelector(".carousel-btn.next");
+
+      if (viewport && prev && next) {
+        const scrollByCard = () =>
+          viewport.querySelector(".card")?.offsetWidth || 320;
+
+        prev.addEventListener("click", () => {
+          viewport.scrollBy({ left: -scrollByCard(), behavior: "smooth" });
+        });
+
+        next.addEventListener("click", () => {
+          viewport.scrollBy({ left: scrollByCard(), behavior: "smooth" });
+        });
+      }
+    </script>
   </body>
 </html>
